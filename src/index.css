@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: rgb(76,81,101);
+    background: linear-gradient(90deg, rgba(76,81,101,1) 0%, rgba(56,89,139,1) 53%, rgba(17,63,103,1) 100%);
+}
+
+.root {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    gap: 7%;
+}
+
+.container > h1 {
+    font-size: 5rem;
+    color: rgb(14, 52, 84, 0.7);
+}
+
+.todoList-input {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+
+.todoList-input > input {
+    width: 70%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background-color: rgb(14, 52, 84);
+    color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.todoList-input > input::placeholder {
+    color: rgb(255, 255, 255, 0.4);
+}
+
+.todoList-input > button {
+    width: 15%;
+    border: none;
+    cursor: pointer;
+    background: #4c5165;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-weight: bold;
+}
+
+.todoList {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.task {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(14, 52, 84);
+    padding: 8px 20px;
+    color: slategrey;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-mark {
+    background: rgb(76, 81, 101);
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.delete-mark {
+    background: rgb(76, 81, 101);
+    padding: 6px;
+    border-radius: 50%;   
+    cursor: pointer;
+}
