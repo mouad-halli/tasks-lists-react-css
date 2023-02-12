@@ -5,100 +5,138 @@
 body {
     height: 100vh;
     width: 100vw;
-    background: rgb(76,81,101);
-    background: linear-gradient(90deg, rgba(76,81,101,1) 0%, rgba(56,89,139,1) 53%, rgba(17,63,103,1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .root {
     height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
+    width: 70vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50%;
-    width: 50%;
+    padding: 60px 20px;
     gap: 7%;
 }
 
-.container > h1 {
-    font-size: 5rem;
-    color: rgb(14, 52, 84, 0.7);
-}
-
-.todoList-input {
+/* TITLE */
+.title {
     display: flex;
+    align-items: center;
     justify-content: center;
-    width: 70%;
+    gap: 5px;
+    font-size: 4rem;
 }
 
-.todoList-input > input {
-    width: 70%;
-    padding: 12px;
-    border: none;
-    outline: none;
-    background-color: rgb(14, 52, 84);
-    color: white;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+.title > h4 {
+    font-weight: bolder;
 }
 
-.todoList-input > input::placeholder {
-    color: rgb(255, 255, 255, 0.4);
+.title > span {
+    font-weight: lighter;
+    color: slategray;
 }
+/* TITLE */
 
-.todoList-input > button {
-    width: 15%;
-    border: none;
-    cursor: pointer;
-    background: #4c5165;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    font-weight: bold;
-}
-
-.todoList {
-    width: 60%;
+/* CREATE LIST */
+.add-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    opacity: 0.8;
+}
+
+.add-list > span {
+    color: slategray;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.plus-icon {
+    color: slategray;
+    border: 1px solid slategray;
+    border-radius: 7px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.plus-icon:hover {
+    transform: scale(1.2);
+}
+/* CREATE LIST */
+
+/* LISTS */
+.lists {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 30px;
+    gap: 40px;
+}
+
+.list {
+    /* background-color: #23395d; */
+    width: 25%;
+    height: 95%;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 4px 6px  slategray;
+    transition: all .2s ease-in-out;
+}
+
+.list:hover {
+    transform: scale(1.04);
+}
+
+.list-name {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid slategray;
+}
+/* LISTS */
+
+/* TASKS */
+.tasks {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 53px 0px;
+    gap: 30px;
+    font-size: 20px;
 }
 
 .task {
+    display: flex;
+    gap: 14px;
+    width: 65%;
+}
+
+.task > label {
     width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgb(14, 52, 84);
-    padding: 8px 20px;
-    color: slategrey;
-    font-weight: bold;
-    border-radius: 30px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
-.task-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.check-mark {
-    background: rgb(76, 81, 101);
-    padding: 6px;
+.check-icon {
+    border: 1px solid slategray;
+    color: rgb(77, 91, 105);
+    background: white;
     border-radius: 50%;
     cursor: pointer;
 }
-
-.delete-mark {
-    background: rgb(76, 81, 101);
-    padding: 6px;
-    border-radius: 50%;   
-    cursor: pointer;
-}
+/* TASKS */

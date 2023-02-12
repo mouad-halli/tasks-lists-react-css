@@ -1,42 +1,49 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Children } from 'react'
+import { BsPlusLg, BsCheck } from 'react-icons/bs'
+import { List } from './components/List'
 import './App.css'
-import { Clock } from './components/Clock'
-import { TodoList } from './components/TodoList'
 
 function App() {
 
-  const [list, setList] = useState([])
+  const initialTestingState = [
+    {
+      listName: 'First List',
+      color: '#23395d',
+      tasks: ['Task 1', 'Task 2', 'Task 3', 'Task 4', 'Task 5']
+    },
+    {
+      listName: 'Second List',
+      color: '#23395d',
+      tasks: ['Task 1', 'Task 2', 'Task 3', 'Task 4', 'Task 5']
+    },
+    {
+      listName: 'Third List',
+      color: '#23395d',
+      tasks: ['Task 1', 'Task 2', 'Task 3', 'Task 4', 'Task 5']
+    },
+    {
+      listName: 'Fourth List',
+      color: '#23395d',
+      tasks: ['Task 1', 'Task 2', 'Task 3', 'Task 4', 'Task 5']
+    }
+  ]
 
-  const removeTaskFromList = (taskIndex) => {
-    const listCopy = [...list]
-    listCopy.splice(taskIndex, 1)
-    setList(listCopy)
-  }
-
-  const CreateTask = (e) => {
-    e.preventDefault()
-    const task = e.target[0].value
-    if (!task)
-      return
-    e.target[0].value = ''
-    const listCopy = [...list, task]
-    setList(listCopy)
-  }
-
-  useEffect(() => {
-    console.log("new task has been added")
-  }, [list])
+  const [lists, setLists] = useState(initialTestingState)
 
   return (
     <div className='root'>
-      <div className='container'>
-        <h1>TO-DO LIST</h1>
-        <form className='todoList-input' onSubmit={CreateTask}>
-          <input type='text' name='task' placeholder='Enter a new task' />
-          <button type='submit' >Create</button>
-        </form>
-        <Clock />
-        <TodoList list={list} deleteTask={removeTaskFromList}/>
+      <div className='title'>
+        <h4>Tasks</h4>
+        <span>Lists</span>
+      </div>
+      <div className='add-list'>
+        <BsPlusLg className='plus-icon' />
+        <span>Create list</span>
+      </div>
+      <div className='lists'>
+        {Children.toArray(lists.map(listItem => (
+          <List list={listItem} />
+        )))}
       </div>
     </div>
   )
